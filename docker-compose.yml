@@ -1,0 +1,13 @@
+orthanc:
+  build: ./orthanc
+  ports:
+    - "4243:4243"
+    - "4244:8042"
+  links:
+    - postgresql:POSTGRESQL
+  env_file:
+    - ./storage.env
+postgresql:
+  image: postgres:latest
+  env_file:
+    - ./storage.env
